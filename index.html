@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impact Crypto</title>
+
+  <!-- Default DARK mode (sebelum render, anti flicker) -->
+  <script>
+    (function () {
+      const KEY = 'ict:dark';
+      let v = localStorage.getItem(KEY);
+      if (v === null) { v = '1'; localStorage.setItem(KEY, '1'); } // default dark
+      const prefersDark = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
+      if (v === '1' || (v === null && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+<div id="root"></div>
+<script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark mode via class .dark */
+:root { color-scheme: light; }
+.dark { color-scheme: dark; }
+
+html, body, #root { height: 100%; }
+body {
+  @apply bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100;
+  margin: 0;
+}
+
+/* Placeholder warna di kedua tema */
+::placeholder { @apply text-slate-400; }
+.dark ::placeholder { @apply text-slate-500; }
+
+/* A11y: fokus ring jelas */
+:focus-visible {
+  outline: 3px solid #7c3aed;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* --- Native form controls: dark mode polish --- */
+.dark {
+  color-scheme: dark; /* penting agar dropdown & datepicker native ikut gelap */
+}
+
+/* Paksa menu options ikut warna dark (Chrome/Edge/Firefox/Chromium) */
+.dark select,
+.dark option,
+.dark optgroup {
+  background-color: #0f172a; /* slate-900 */
+  color: #e2e8f0;           /* slate-100 */
+}
+
+/* Aksen kontrol (checkbox, range, radio) supaya senada ungu */
+:root {
+  accent-color: #a78bfa; /* violet-400 */
+}
+
+/* Hilangkan style bawaan arrow di beberapa browser lama */
+select::-ms-expand { display: none; }
